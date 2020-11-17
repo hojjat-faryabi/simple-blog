@@ -21,6 +21,8 @@ def index(request):
 def about(request):
     return render(request, "about.html")
 
+def contact(request):
+    return render(request, "contact.html")
 
 def singleArticle(request, article_id):
     article = models.Article.objects.get(id=article_id)
