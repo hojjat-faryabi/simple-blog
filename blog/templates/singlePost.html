@@ -1,53 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block title %} HomePage {% endblock title %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinple Poste</title>
-    <link rel="stylesheet" href="static/css/style.css">
-</head>
+{% block content %}
+<div id="singlepage-content" class="dflex">
 
-<body>
-    <!-- Header section -->
-
-    <div class="dflex">
-
-        <a id="header-item" href="index.html"> Home </a>
-        <a id="header-item" href="category.html"> Category </a>
-        <a id="header-item" href="contact.html"> Contact Us </a>
-        <a id="header-item" href="about.html"> About Us </a>
+    <h3>{{ article.title }}</h3>
+    <span>category : {{ article.category }}</span>
+    <p> {{ article.content }} </p>
+    <br />
+    <br />
+    <div style="display:flex; flex-direction: column; align-items: flex-end;">
+        <span>BY : {{ article.user }}</span>
+        <span>IN : {{ article.created_at.date }} </span>
     </div>
 
-    <!-- End Header -->
+</div>
 
-    <!-- Content -->
-
-    <div id="singlepage-content" class="dflex">
-
-        <h3>{{ article.title }}</h3>
-        <span>category : {{ article.category }}</span>
-        <p> {{ article.content }} </p>
-        <br />
-        <br />
-        <div style="display:flex; flex-direction: column; align-items: flex-end;">
-            <span>BY : {{ article.user }}</span>
-            <span>IN : {{ article.created_at.date }} </span>
-        </div>
-
-    </div>
-
-    <!-- End Content -->
-
-    <!-- Footer -->
-
-
-    <div class="dflex" id="footer">
-        <p> Copyright 2020 <a href="https://github.com/hojjat-faryabi"> hojjat faryabi</a> </p>
-    </div>
-
-
-    <!-- End Footer -->
-</body>
-
-</html>
+<!-- End Content -->
+{% endblock content %}
