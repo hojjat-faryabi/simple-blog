@@ -24,6 +24,10 @@ def about(request):
 def contact(request):
     return render(request, "contact.html")
 
+def category(request):
+    categories = models.Category.objects.all()
+    return render(request, "category.html", {'categories':categories})
+
 def singleArticle(request, article_id):
     article = models.Article.objects.get(id=article_id)
     context = {'article':article}

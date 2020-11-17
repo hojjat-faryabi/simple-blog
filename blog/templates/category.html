@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} article.title {% endblock title %}
+
+{% block content %}
+<!-- Content -->
+
+<div id="category-content" class="dflex">
+
+    <dl>
+        <dt>
+            <h1>categories:</h3>
+        </dt>
+        {% for category in categories %}
+        <dd style="margin-bottom: 5px;"> <a style="font-size: 25px;">{{ category.title }}</a> </dd>
+        {% endfor %}
+    </dl>
+
+</div>
+
+<!-- End Content -->
+{% endblock content %}
