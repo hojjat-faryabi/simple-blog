@@ -25,64 +25,20 @@
 
     <div id="content">
 
-
+        {% for article in articles %}
         <div id="content-cell">
 
-            <h3> Poste 1 </h3>
-            <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                officia deserunt mollit anim id est laborum. </span>
+            <h3> {{ article.title }} </h3>
+            <span> {{ article.description }} </span>
             <br />
             <br />
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
-                <span> category : category 1</span>
+                <span> category : {{ article.category }} </span>
                 <a class="read-more" href="singlePost.html"> read more</a>
             </div>
 
         </div>
-
-
-
-
-        <div id="content-cell">
-
-            <h3> Poste 1 </h3>
-            <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                officia deserunt mollit anim id est laborum. </span>
-            <br />
-            <br />
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
-                <span> category : category 1</span>
-                <a class="read-more" href="singlePost.html"> read more</a>
-            </div>
-
-        </div>
-
-
-
-
-
-        <div id="content-cell">
-
-            <h3> Poste 1 </h3>
-            <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                officia deserunt mollit anim id est laborum. </span>
-            <br />
-            <br />
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
-                <span> category : category 1</span>
-                <a class="read-more" href="singlePost.html"> read more</a>
-            </div>
-
-        </div>
+        {% endfor %}
 
 
         <div class="page-ination">
