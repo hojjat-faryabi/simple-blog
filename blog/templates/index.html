@@ -34,7 +34,7 @@
             <br />
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
                 <span> category : {{ article.category }} </span>
-                <a class="read-more" href="singlePost.html"> read more</a>
+                <a class="read-more" href="{% url 'blog:single_article' article.id %}"> read more</a>
             </div>
 
         </div>
