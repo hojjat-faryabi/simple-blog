@@ -18,6 +18,10 @@ def index(request):
     return render(request, "index.html", context)
 
 
+def about(request):
+    return render(request, "about.html")
+
+
 def singleArticle(request, article_id):
     article = models.Article.objects.get(id=article_id)
     context = {'article':article}
