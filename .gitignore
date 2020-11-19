@@ -3,3 +3,6 @@
 
 #migrations
 blog/migrations/*
+
+#data bases
+db.sqlite3
