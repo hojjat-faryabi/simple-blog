@@ -24,9 +24,11 @@
 
 
         <div class="page-ination">
-            <a href="#" class="page-ination-item"> 1 </a>
-            <a href="#" class="page-ination-item"> 2 </a>
-            <a href="#" class="page-ination-item"> 3 </a>
+
+            {% for i in pages_count %}
+            <a href="{% url 'blog:index' %}?page={{i}}" class="page-ination-item"> {{i}} </a>
+            {% endfor %}
+
         </div>
 
     </div>

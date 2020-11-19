@@ -1,21 +1,25 @@
 from django.shortcuts import render, redirect
 from . import models
 from .forms import ContactUsForm
+from django.core.paginator import Paginator, EmptyPage
 
 def index(request):
 
-    articlesData = []
-    articles = models.Article.objects.all().order_by('-created_at')[:4]
+    all_articles = models.Article.objects.all().order_by('-created_at')
 
-    for article in articles:
-        articlesData.append({
-            'title' : article.title,
-            'description' : article.description,
-            'category' : article.category,
-            'id' : article.id
-        })
+    pages = Paginator(all_articles, 4)
 
-    context = {'articles':articlesData}
+    n = request.GET.get("page", 1)
+
+    try:
+        articles = pages.page(n)
+    except EmptyPage:
+        articles = pages.page(1)
+
+    context = {
+        'articles':articles,
+        'pages_count' : range(1, pages.num_pages + 1)
+    }
     return render(request, "index.html", context)
 
 def about(request):
