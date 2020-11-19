@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import models
+from .forms import ContactUsForm
 
 def index(request):
 
@@ -17,12 +18,27 @@ def index(request):
     context = {'articles':articlesData}
     return render(request, "index.html", context)
 
-
 def about(request):
     return render(request, "about.html")
 
 def contact(request):
-    return render(request, "contact.html")
+    context = {}
+
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+
+        if form.is_valid:
+            my_model = form.save()
+            context["show_message"] = "message send."
+        else:
+            context["show_message"] = "your message is not valid!"
+
+    else :
+        # form = ContactUsForm()
+        context["show_message"] = ""
+    
+    context["form"] = ContactUsForm()
+    return render(request, "contact.html", context)
 
 def category(request):
     categories = models.Category.objects.all()

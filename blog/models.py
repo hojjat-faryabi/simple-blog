@@ -20,3 +20,10 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+class Message(models.Model):
+    name = models.CharField(max_length=200, null=False, blank=False)
+    message = models.TextField(null=False, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.message

@@ -7,19 +7,12 @@
 <div id="contact-content" class="dflex">
 
     <form action="" method="POST">
+        {% csrf_token %}
 
-
-        <span>send an email to me!</span>
+        <span>send a message to me!</span>
         <br />
         <br />
-        <br />
-
-        <input type="text" placeholder="name" name="name" />
-        <br />
-        <br />
-        <textarea rows="8" cols="80" placeholder="message" name="message"></textarea>
-
-        <br />
+        {{ form.as_p }}
         <br />
         <br />
         <input type="submit" />
@@ -27,6 +20,15 @@
     </form>
 
 </div>
+
+{% if show_message != "" %}
+
+    <script>
+        message = "{{ show_message }}"
+        alert(message)
+    </script>
+
+{% endif %}
 
 <!-- End Content -->
 {% endblock content %}
