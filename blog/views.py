@@ -55,7 +55,13 @@ def contact(request):
 
 def category(request):
     categories = models.Category.objects.all()
-    return render(request, "category.html", {'categories':categories})
+
+    num_articles = []
+    for category in categories:
+        articles_of_category = models.Article.objects.filter(category=category.id)
+        num_articles.append(len(articles_of_category))
+
+    return render(request, "category.html", {'categories':categories, 'num':num_articles})
 
 def singleArticle(request, article_id):
     article = models.Article.objects.get(id=article_id)

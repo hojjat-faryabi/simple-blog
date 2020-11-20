@@ -4,6 +4,9 @@
 {% block content %}
 <!-- Content -->
 
+<!-- with this can access to templatetags folder functions -->
+{% load index %}
+
 <div id="category-content" class="dflex">
 
     <dl>
@@ -11,7 +14,8 @@
             <h1>categories:</h3>
         </dt>
         {% for category in categories %}
-        <dd style="margin-bottom: 5px;"> <a href="{% url 'blog:index' %}?category={{category.id}}" style="font-size: 25px;">{{ category.id }} - {{ category.title }}</a> </dd>
+        <dd style="margin-bottom: 5px;"> <a href="{% url 'blog:index' %}?category={{category.id}}"
+                style="font-size: 25px;">{{ category.id }} - {{ category.title }} ({{ num|index:forloop.counter0 }})</a> </dd>
         {% endfor %}
     </dl>
 
