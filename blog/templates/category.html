@@ -11,7 +11,7 @@
             <h1>categories:</h3>
         </dt>
         {% for category in categories %}
-        <dd style="margin-bottom: 5px;"> <a style="font-size: 25px;">{{ category.title }}</a> </dd>
+        <dd style="margin-bottom: 5px;"> <a href="{% url 'blog:index' %}?category={{category.id}}" style="font-size: 25px;">{{ category.id }} - {{ category.title }}</a> </dd>
         {% endfor %}
     </dl>
 

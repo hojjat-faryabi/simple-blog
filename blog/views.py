@@ -2,10 +2,19 @@ from django.shortcuts import render, redirect
 from . import models
 from .forms import ContactUsForm
 from django.core.paginator import Paginator, EmptyPage
+from django.http import Http404
 
 def index(request):
 
-    all_articles = models.Article.objects.all().order_by('-created_at')
+    category_id = request.GET.get("category", '')
+
+    if category_id:
+        try:
+            all_articles = models.Article.objects.filter(category=category_id)
+        except models.Article.DoesNotExist:
+            raise Http404("Category Dose Not Exist")        
+    else:
+        all_articles = models.Article.objects.all().order_by('-created_at')
 
     pages = Paginator(all_articles, 4)
 
