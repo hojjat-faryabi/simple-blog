@@ -4,12 +4,12 @@ a very very very simple blog with python Django 2.2
 ## Usage
 1.  clone project
 2.  go to project root folder
-3.  install requirements with
+3.  install requirements with <br/>
 	``` pip install -r requirements.txt ```
-4. do migrations
-	``` python manage.py makemigrations ```
+4. do migrations <br/>
+	``` python manage.py makemigrations ``` <br/>
 	``` python manage.py migrate ```
-5. run server
+5. run server <br/>
 	``` python manage.py runserver ```
 
 ## Notes
